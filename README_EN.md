@@ -38,8 +38,8 @@ Place public-safe screenshots under `screenshots/`.
 
 ## Changelog & Roadmap
 
-- [Changelog](CHANGELOG.md)
-- [Roadmap](ROADMAP.md)
+- [Changelog](CHANGELOG_EN.md)
+- [Roadmap](ROADMAP_EN.md)
 
 ## Source Code
 
