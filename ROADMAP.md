@@ -1,45 +1,45 @@
-# Rift2D Roadmap
+# Rift2D 开发路线图
 
-[English](ROADMAP.md) | [中文](ROADMAP_CN.md)
-
----
-
-## Current Phase: Early Development
-
-### Core Systems (In Progress)
-- [x] Project architecture setup (QFramework-style)
-- [x] Scene flow management
-- [x] Save/Load system
-- [x] Minimal realtime multiplayer validation
-- [ ] Inventory system expansion
-- [ ] Equipment system
-- [ ] Character progression
-
-### Gameplay Features (Planned)
-- [ ] Dungeon generation
-- [ ] Combat system
-- [ ] Enemy AI
-- [ ] Loot system
-- [ ] Extraction mechanics
-
-### Technical (Planned)
-- [ ] HybridCLR hot update integration
-- [ ] Multiplayer validation expansion
-- [ ] Performance optimization
-- [ ] Mobile platform support
+[English](ROADMAP_EN.md) | [中文](ROADMAP.md)
 
 ---
 
-## Future Milestones
+## 当前阶段：早期开发
 
-| Version | Target | Status |
-|---------|--------|--------|
-| v0.1.0 | Core systems foundation | In Progress |
-| v0.2.0 | Combat & Dungeon prototype | Planned |
-| v0.3.0 | Progression system | Planned |
-| v0.4.0 | Hot update support | Planned |
-| v1.0.0 | Full release | Planned |
+### 核心系统（进行中）
+- [x] 项目架构搭建（QFramework 风格）
+- [x] 场景流程管理
+- [x] 存档/读档系统
+- [x] 最小实时多人验证
+- [ ] 背包系统扩展
+- [ ] 装备系统
+- [ ] 角色成长
+
+### 游戏特性（计划中）
+- [ ] 地下城生成
+- [ ] 战斗系统
+- [ ] 敌人 AI
+- [ ] 战利品系统
+- [ ] 撤离机制
+
+### 技术实现
+- [x] HybridCLR 热更新边界
+- [ ] 多人游戏验证扩展
+- [ ] 性能优化
+- [ ] 移动平台支持
 
 ---
 
-*This roadmap is subject to change as development progresses.*
+## 未来里程碑
+
+| 版本 | 目标 | 状态 |
+|------|------|------|
+| v0.1.0 | 核心系统基础 | 进行中 |
+| v0.2.0 | 战斗与地下城原型 | 计划中 |
+| v0.3.0 | 成长系统 | 计划中 |
+| v0.4.0 | 性能优化 | 计划中 |
+| v1.0.0 | 正式发布 | 计划中 |
+
+---
+
+*本路线图可能随开发进展而调整。*

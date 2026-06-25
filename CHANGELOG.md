@@ -1,36 +1,39 @@
-# Rift2D Changelog
+# Rift2D 更新日志
 
-All notable changes to this project will be documented in this file.
+所有重要的项目变更都会记录在此文件中。
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)。
+
+[English](CHANGELOG_EN.md) | [中文](CHANGELOG.md)
 
 ---
 
-## [Unreleased]
+## [未发布]
 
-### Added
-- Showcase sync workflow setup
+### 新增
+- 展示仓库同步工作流
 
-### Changed
-- Nothing yet
+### 变更
+- 无
 
-### Fixed
-- Nothing yet
+### 修复
+- 无
 
 ---
 
 ## [0.1.0] - 2026-01-01
 
-### Added
-- Initial project setup
-- Unity 2022.3 base project structure
-- QFramework-style architecture foundation
-- Basic scene flow (boot, lobby, dungeon)
-- Save slot system
-- Inventory system prototype
-- YooAsset resource pipeline integration
-- Luban configuration workflow
-- Minimal realtime multiplayer (TCP protocol)
+### 新增
+- 项目初始化
+- Unity 2022.3 基础项目结构
+- QFramework 风格架构基础
+- 基础场景流程（启动、大厅、地下城）
+- 存档槽系统
+- 背包系统原型
+- YooAsset 资源管道集成
+- Luban 配置工作流
+- HybridCLR 热更新边界
+- 最小实时多人联机（TCP 协议）
 
-[Unreleased]: https://github.com/godspacecc/Rift2D-Showcase/compare/v0.1.0...HEAD
+[未发布]: https://github.com/godspacecc/Rift2D-Showcase/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/godspacecc/Rift2D-Showcase/releases/tag/v0.1.0
