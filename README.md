@@ -1,5 +1,7 @@
 # Rift2D
 
+[English](README_EN.md) | [中文](README.md)
+
 Rift2D is a Unity 2D action RPG project in development.
 
 This public repository is only a lightweight showcase for the project. The full Unity project, source code, project files, configuration pipeline, editor tools, and original assets are not included.
@@ -33,6 +35,11 @@ The project is built with Unity 2022.3 and C#, using a QFramework-style Model / 
 Screenshots will be added as the public showcase is updated.
 
 Place public-safe screenshots under `screenshots/`.
+
+## Changelog & Roadmap
+
+- [Changelog](CHANGELOG.md)
+- [Roadmap](ROADMAP.md)
 
 ## Source Code
 
