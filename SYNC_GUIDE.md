@@ -4,23 +4,74 @@
 
 ---
 
-## 触发方式
+## 同步内容
 
-工作流支持两种触发方式：
-
-### 自动触发
-当以下文件变化并 push 到 `main` 分支时，自动同步：
-- `README.md` / `README_CN.md`
-- `CHANGELOG.md`
-- `ROADMAP.md` / `ROADMAP_CN.md`
-- `screenshots/` 目录下的文件
-
-### 手动触发
-在 GitHub Actions 页面手动执行，可选择：
-- 是否更新各文件
-- 是否创建 Release（填入版本号）
+| 内容 | 触发方式 | 说明 |
+|------|----------|------|
+| 文档（README/CHANGELOG/ROADMAP） | 自动触发 | 修改文档并 push 时自动同步 |
+| Release | 自动触发 | 开发仓库发布 Release 时自动同步到展示仓库 |
+| Release Assets | 自动同步 | 构建产物随 Release 自动同步 |
 
 ---
+
+## 触发方式
+
+### 文档同步
+
+当以下文件变化并 push 到 `main` 分支时，自动同步：
+- `README.md` / `README_EN.md`
+- `CHANGELOG.md` / `CHANGELOG_EN.md`
+- `ROADMAP.md` / `ROADMAP_EN.md`
+- `screenshots/` 目录下的文件
+
+### Release 同步
+
+当开发仓库发布 Release 时，自动同步 Release 信息和 assets 到展示仓库。
+
+---
+
+## Release 发布流程
+
+### 1. 本地构建
+
+在 Unity Editor 中执行：
+```
+菜单 → Tools → 打包 → 1. Build
+```
+
+构建产物位于：`Builds/Windows_IL2CPP/`
+
+### 2. 打包发布
+
+将构建产物打包为压缩文件：
+```
+Builds/Windows_IL2CPP/ → Rift2D-v0.1.0-Windows.zip
+```
+
+### 3. 创建 Release
+
+在开发仓库创建 Release：
+https://github.com/godspacecc/Rift2D/releases/new
+
+- **Tag**: 填写版本号（如 `v0.1.0`）
+- **Title**: 填写标题
+- **Notes**: 从 CHANGELOG 复制该版本的更新内容
+- **Assets**: 上传打包的构建产物（zip 文件）
+
+### 4. 自动同步
+
+创建 Release 后，工作流自动触发：
+- Release 信息同步到展示仓库
+- Assets 同步到展示仓库的 Release
+
+---
+
+## 工作流文件
+
+| 文件 | 说明 |
+|------|------|
+| `sync-to-showcase.yml` | 文档同步 |
+| `sync-release.yml` | Release 同步 |
 
 ## 前置条件
 
