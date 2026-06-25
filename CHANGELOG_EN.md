@@ -11,7 +11,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
-- Showcase repo sync workflow
+- Nothing yet
 
 ### Changed
 - Nothing yet
@@ -21,19 +21,34 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
-## [0.1.0] - 2026-01-01
+## [0.1.0] - 2026-06-25
+
+First release, core systems foundation complete.
 
 ### Added
-- Initial project setup
-- Unity 2022.3 base project structure
-- QFramework-style architecture foundation
-- Basic scene flow (boot, lobby, dungeon)
-- Save slot system
-- Inventory system prototype
-- YooAsset resource pipeline integration
-- Luban configuration workflow
-- HybridCLR hot update boundary
-- Minimal realtime multiplayer (TCP protocol)
+- **Architecture**: Unity 2022.3 + QFramework-style layers (Model/System/Command/Controller/Event)
+- **Scene Flow**: Boot → Lobby → Dungeon → Return to lobby, complete game loop skeleton
+- **Save System**: Multi-slot saves, create/load/continue/delete
+- **Inventory**: Prototype inventory system with basic structure
+- **Resource Pipeline**: YooAsset loading pipeline, local/remote resources support
+- **Configuration**: Luban XML/CSV workflow
+- **Hot Update**: HybridCLR integration, Boot (host) and Game (hot update) assembly separation
+- **Multiplayer**: Minimal realtime multiplayer validation, TCP protocol, local/LAN testing
+- **Toolchain**:
+  - UI generation tool
+  - Asset reference diagnostics
+  - Animation diagnostics
+  - YooAsset packaging helper
+  - Localization helper
+  - Server deployment helper
+- **Testing**: Unity EditMode tests, .NET server tests, headless TCP smoke tests
+- **Showcase Repo**: GitHub Actions auto-sync docs and releases to showcase repo
+
+### Changed
+- Nothing
+
+### Fixed
+- Nothing
 
 [Unreleased]: https://github.com/godspacecc/Rift2D-Showcase/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/godspacecc/Rift2D-Showcase/releases/tag/v0.1.0
