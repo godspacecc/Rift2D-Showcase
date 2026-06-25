@@ -43,7 +43,7 @@
 
 ### 2. 打包发布
 
-将构建产物打包为压缩文件：
+将构建产物打包为压缩文件（支持 zip、rar、7z 等格式）：
 ```
 Builds/Windows_IL2CPP/ → Rift2D-v0.1.0-Windows.zip
 ```
