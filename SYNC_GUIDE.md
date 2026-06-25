@@ -1,0 +1,143 @@
+# 同步设置指南
+
+本文档说明如何在开发仓库配置 GitHub Actions 自动同步到展示仓库。
+
+---
+
+## 触发方式
+
+工作流支持两种触发方式：
+
+### 自动触发
+当以下文件变化并 push 到 `main` 分支时，自动同步：
+- `README.md` / `README_CN.md`
+- `CHANGELOG.md`
+- `ROADMAP.md` / `ROADMAP_CN.md`
+- `screenshots/` 目录下的文件
+
+### 手动触发
+在 GitHub Actions 页面手动执行，可选择：
+- 是否更新各文件
+- 是否创建 Release（填入版本号）
+
+---
+
+## 前置条件
+
+- 开发仓库和展示仓库都在 GitHub 上
+- 您对两个仓库都有管理权限
+
+---
+
+## 设置步骤
+
+### 1. 创建 Personal Access Token (PAT)
+
+1. 访问 GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens
+2. 点击 **Generate new token**
+3. 配置：
+   - **Token name**: `Rift2D Showcase Sync`
+   - **Expiration**: 选择合适的有效期（建议 1 年）
+   - **Repository access**: Only select repositories → 选择 `Rift2D-Showcase`
+   - **Permissions** → Repository permissions:
+     - Contents: Read and write
+     - Metadata: Read
+4. 点击 **Generate token**
+5. **立即复制并保存 Token**（只显示一次）
+
+### 2. 在开发仓库添加 Secret
+
+1. 打开开发仓库 → Settings → Secrets and variables → Actions
+2. 点击 **New repository secret**
+3. 配置：
+   - **Name**: `SHOWCASE_REPO_TOKEN`
+   - **Secret**: 粘贴上一步创建的 PAT
+4. 点击 **Add secret**
+
+### 3. 复制工作流文件到开发仓库
+
+将 `sync-to-showcase.yml` 复制到开发仓库的 `.github/workflows/` 目录。
+
+### 4. 修改工作流配置（可选）
+
+编辑 `sync-to-showcase.yml`，根据实际情况修改：
+
+```yaml
+env:
+  SHOWCASE_REPO: godspacecc/Rift2D-Showcase  # 展示仓库地址
+  SHOWCASE_BRANCH: main                        # 展示仓库分支
+```
+
+---
+
+## 使用方法
+
+### 手动触发同步
+
+1. 打开开发仓库 → Actions → Sync to Showcase
+2. 点击 **Run workflow**
+3. 配置参数：
+   - **version**: 发布版本号（如 `v0.1.0`），留空则跳过发布
+   - **update_readme**: 是否更新 README
+   - **update_changelog**: 是否更新 CHANGELOG
+   - **update_roadmap**: 是否更新 ROADMAP
+4. 点击 **Run workflow**
+
+### 自动触发（可选）
+
+如需在特定事件后自动同步，可在工作流中添加触发条件：
+
+```yaml
+on:
+  workflow_dispatch:  # 手动触发
+  push:
+    branches: [main]
+    paths:
+      - 'README.md'
+      - 'CHANGELOG.md'
+      - 'ROADMAP.md'
+```
+
+---
+
+## 文件结构要求
+
+开发仓库应包含以下文件（会同步到展示仓库）：
+
+```
+dev-repo/
+├── README.md          # 英文说明
+├── README_CN.md       # 中文说明（可选）
+├── CHANGELOG.md       # 更新日志
+├── ROADMAP.md         # 英文路线图
+├── ROADMAP_CN.md      # 中文路线图（可选）
+└── screenshots/       # 截图目录（可选）
+```
+
+---
+
+## 故障排除
+
+### Token 权限错误
+
+确保 PAT 有正确的权限：
+- Contents: Read and write
+- Repository access 包含展示仓库
+
+### 工作流未触发
+
+- 检查工作流文件是否在正确的分支
+- 确认 Actions 已在仓库设置中启用
+
+### Release 创建失败
+
+- 检查版本号是否已存在
+- 确保 CHANGELOG.md 格式正确
+
+---
+
+## 注意事项
+
+- 同步会覆盖展示仓库中的对应文件
+- 建议在开发仓库维护主文档，展示仓库仅作为镜像
+- 截图需要手动放入开发仓库的 `screenshots/` 目录
