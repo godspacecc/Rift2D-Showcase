@@ -32,7 +32,26 @@
 
 ## Release 发布流程
 
-### 1. 本地构建
+### 自动发布（推荐）
+
+使用发布脚本一键完成构建、打包、发布：
+
+```bash
+cd E:/UnityProject/Rift2D/Tools
+publish.bat v0.1.0 zip
+```
+
+脚本自动执行：
+1. Unity 命令行构建
+2. 打包压缩（支持 zip/rar/7z）
+3. 创建 GitHub Release 并上传
+4. 自动同步到展示仓库
+
+### 手动发布（备选）
+
+如果脚本不可用，可以手动操作：
+
+#### 1. 本地构建
 
 在 Unity Editor 中执行：
 ```
@@ -41,14 +60,14 @@
 
 构建产物位于：`Builds/Windows_IL2CPP/`
 
-### 2. 打包发布
+#### 2. 打包发布
 
 将构建产物打包为压缩文件（支持 zip、rar、7z 等格式）：
 ```
 Builds/Windows_IL2CPP/ → Rift2D-v0.1.0-Windows.zip
 ```
 
-### 3. 创建 Release
+#### 3. 创建 Release
 
 在开发仓库创建 Release：
 https://github.com/godspacecc/Rift2D/releases/new
@@ -58,7 +77,7 @@ https://github.com/godspacecc/Rift2D/releases/new
 - **Notes**: 从 CHANGELOG 复制该版本的更新内容
 - **Assets**: 上传打包的构建产物（zip 文件）
 
-### 4. 自动同步
+#### 4. 自动同步
 
 创建 Release 后，工作流自动触发：
 - Release 信息同步到展示仓库
