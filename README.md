@@ -1,6 +1,6 @@
 # Rift2D
 
-[English](README_EN.md) | [中文](README.md)
+[English](README.md) | [中文](README_CN.md)
 
 Rift2D is a Unity 2D action RPG project in development.
 
