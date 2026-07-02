@@ -33,8 +33,8 @@ v0.1.0 core systems foundation released. Offline combat, Survivor mode, wilderne
 ### 4. Map editor & wilderness maps
 
 - **Goal**: Upgrade maps from editable grid data into wilderness maps that support exploration, resources, enemies, risk/reward, and extraction-route judgment.
-- **Path**: Map data, runtime base, wilderness terrain generation, and editor regionalized production are done → regional gameplay distribution logic and gameplay health → presentation polish, final art, and performance optimization.
-- **Progress**: First two phases done. Currently pushing on resource points, enemy points, hazard points, risk/reward, and health rules; final resources and performance optimization come last.
+- **Path**: Map data, runtime base, wilderness terrain generation, and editor regionalized production are done → regional gameplay distribution logic and gameplay health (done) → presentation polish, final art, and performance optimization.
+- **Progress**: First three phases done. Regional gameplay distribution logic landed: biome gameplay semantics, stable generation of resource / enemy / hazard points, risk-reward scoring and health evaluation, and an editor gameplay preview, all covered by EditMode tests; gameplay points are logic-only and not written to the document. Next up: presentation polish, final art, performance work, and wiring the values into Survivor / loot / monster configs.
 
 ### 5. Story performance system
 
@@ -54,7 +54,7 @@ v0.1.0 core systems foundation released. Offline combat, Survivor mode, wilderne
 
 1. **Offline combat entity-projectile loop** — shared foundation for Survivor and normal offline combat presentation.
 2. **Survivor target time, XP curve, and dedicated waves** — fastest path to better current playability.
-3. **Map regional gameplay distribution logic** — terrain base is ready; get terrain affecting resources, enemies, and risk/reward ASAP.
+3. **Map gameplay distribution presentation hookup** — regional gameplay distribution logic (resource / enemy / hazard points + risk-reward health) is done; next, wire the logic points into final resource, monster, and loot configs.
 4. **GameStateModel responsibility consolidation** — reduce global-state coupling when extending future gameplay.
 5. **Realtime multiplayer movement-sync diagnosis and remote interpolation** — quantify the problem first, then pick a presentation strategy.
 
